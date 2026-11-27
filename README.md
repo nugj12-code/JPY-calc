@@ -4,7 +4,7 @@
 설치 없이 브라우저에서 바로 열리고, 아이폰 사파리에서 쓰기 좋게 만들었습니다.
 
 - 🌐 라이브 페이지: **https://nugj12-code.github.io/JPY-calc/**
-- 파일 구성: `index.html` (HTML·CSS·JS 한 파일, 외부 빌드 도구 없음) + `README.md`
+- 파일 구성: `index.html` (HTML·CSS·JS 한 파일, 외부 빌드 도구 없음) + `og.png` (공유 카드 이미지) + `README.md`
 
 ---
 
