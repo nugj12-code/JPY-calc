@@ -49,6 +49,8 @@
     --line-strong:#d5dbe6;
     --brand:#2563eb;
     --brand2:#5b4cf0;
+    --grad-a:#2563eb;
+    --grad-b:#5b4cf0;
     --brand-soft:rgba(37,99,235,.09);
     --ok:#0a8a5c;
     --ok-soft:rgba(10,138,92,.1);
@@ -65,8 +67,10 @@
       --muted:#93a2b8;
       --line:#212b3d;
       --line-strong:#2c3a52;
-      --brand:#5b8cff;
-      --brand2:#8b7bff;
+      --brand:#7aa2ff;
+      --brand2:#a294ff;
+      --grad-a:#2f5bd6;
+      --grad-b:#5947d8;
       --brand-soft:rgba(91,140,255,.13);
       --ok:#37d399;
       --ok-soft:rgba(55,211,153,.12);
@@ -103,7 +107,7 @@
   .mark{
     width:40px;height:40px;flex:0 0 40px;border-radius:12px;
     display:grid;place-items:center;
-    background:linear-gradient(135deg,var(--brand),var(--brand2));
+    background:linear-gradient(135deg,var(--grad-a),var(--grad-b));
     color:#fff;font-size:21px;font-weight:700;
     box-shadow:0 6px 16px -8px rgba(37,99,235,.9);
   }
@@ -170,7 +174,7 @@
   .tab.is-active{color:#fff}
   .tab-pill{
     position:absolute;top:5px;bottom:5px;left:5px;width:calc(50% - 5px);
-    background:linear-gradient(135deg,var(--brand),var(--brand2));border-radius:12px;
+    background:linear-gradient(135deg,var(--grad-a),var(--grad-b));border-radius:12px;
     transition:transform .28s cubic-bezier(.4,0,.2,1);
     box-shadow:0 6px 16px -8px rgba(37,99,235,.85);
   }
@@ -229,7 +233,7 @@
     background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.28);
     transition:transform .22s cubic-bezier(.4,0,.2,1);
   }
-  .switch input:checked + .track{background:linear-gradient(135deg,var(--brand),var(--brand2))}
+  .switch input:checked + .track{background:linear-gradient(135deg,var(--grad-a),var(--grad-b))}
   .switch input:checked + .track .knob{transform:translateX(18px)}
   .switch input:focus-visible + .track{outline:2px solid var(--brand);outline-offset:2px}
 
@@ -274,7 +278,7 @@
   .meter-track{height:7px;border-radius:999px;background:var(--line);overflow:hidden}
   .meter-fill{
     height:100%;width:0;border-radius:999px;
-    background:linear-gradient(90deg,var(--brand),var(--brand2));
+    background:linear-gradient(90deg,var(--grad-a),var(--grad-b));
     transition:width .35s cubic-bezier(.4,0,.2,1), background .3s ease;
   }
   .meter-fill.over{background:linear-gradient(90deg,#f97316,var(--warn))}
