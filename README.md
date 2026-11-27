@@ -3,7 +3,7 @@
 실시간 엔화 환율로 **일본 여행 경비**와 **직구 관부가세**를 한 화면에서 계산하는 웹 앱입니다.
 설치 없이 브라우저에서 바로 열리고, 아이폰 사파리에서 쓰기 좋게 만들었습니다.
 
-- 🌐 라이브 페이지: **https://nugj12-code.github.io/jpy-calc/**
+- 🌐 라이브 페이지: **https://nugj12-code.github.io/JPY-calc/**
 - 파일 구성: `index.html` (HTML·CSS·JS 한 파일, 외부 빌드 도구 없음) + `README.md`
 
 ---
@@ -81,6 +81,6 @@
 
 ## 배포 상태
 
-- 저장소: `nugj12-code/jpy-calc` (public)
+- 저장소: `nugj12-code/JPY-calc` (public)
 - 브랜치: `main` / 루트(`/`)를 GitHub Pages 소스로 사용
 - 배포 후 푸시만 하면 자동 반영 (별도 빌드 없음)

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>일본 직구·여행 엔화+관부가세 1초 계산기</title>
 <meta name="description" content="실시간 엔화 환율로 일본 여행 경비와 직구 관부가세를 1초에 계산. 면세 10% 반영, $150 목록통관 자동 판정, 카드 수수료까지 한 번에." />
-<link rel="canonical" href="https://nugj12-code.github.io/jpy-calc/" />
+<link rel="canonical" href="https://nugj12-code.github.io/JPY-calc/" />
 <meta name="theme-color" content="#f5f6f8" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#0b0f19" media="(prefers-color-scheme: dark)" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="엔화 · 관부가세 계산기" />
 <meta property="og:title" content="일본 직구·여행 엔화+관부가세 1초 계산기" />
 <meta property="og:description" content="실시간 엔화 환율로 여행 경비와 직구 관부가세를 바로 계산. $150 목록통관 자동 판정까지." />
-<meta property="og:url" content="https://nugj12-code.github.io/jpy-calc/" />
+<meta property="og:url" content="https://nugj12-code.github.io/JPY-calc/" />
 <meta property="og:locale" content="ko_KR" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="일본 직구·여행 엔화+관부가세 1초 계산기" />
@@ -30,7 +30,7 @@
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "일본 직구·여행 엔화+관부가세 1초 계산기",
-  "url": "https://nugj12-code.github.io/jpy-calc/",
+  "url": "https://nugj12-code.github.io/JPY-calc/",
   "applicationCategory": "FinanceApplication",
   "operatingSystem": "Any",
   "inLanguage": "ko",
@@ -598,20 +598,22 @@
         throw new Error("bad payload");
       });
 
-    var fallback = fetch("https://api.frankfurter.app/latest?from=JPY&to=KRW,USD", { cache: "no-store" })
-      .then(function(r){ return r.json(); })
-      .then(function(d){
-        if (d && d.rates && d.rates.KRW && d.rates.USD){
-          return {
-            rate100: d.rates.KRW * 100,
-            usdPerJpy: d.rates.USD,
-            meta: d.date || ""
-          };
-        }
-        throw new Error("bad payload");
-      });
+    function fallback(){
+      return fetch("https://api.frankfurter.app/latest?from=JPY&to=KRW,USD", { cache: "no-store" })
+        .then(function(r){ return r.json(); })
+        .then(function(d){
+          if (d && d.rates && d.rates.KRW && d.rates.USD){
+            return {
+              rate100: d.rates.KRW * 100,
+              usdPerJpy: d.rates.USD,
+              meta: d.date || ""
+            };
+          }
+          throw new Error("bad payload");
+        });
+    }
 
-    primary.catch(function(){ return fallback; })
+    primary.catch(fallback)
       .then(function(res){ setRate(res.rate100, res.usdPerJpy, res.meta, true); })
       .catch(function(){
         state.live = false;
